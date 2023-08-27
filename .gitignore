@@ -1,0 +1,8 @@
+.ipynb_checkpoints
+__pycache__
+
+Datasets/*
+Project/*
+
+Elements of Statistical Learning Textbook.pdf
+Textbook.pdf
