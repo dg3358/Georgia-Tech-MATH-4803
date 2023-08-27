@@ -7,6 +7,7 @@ from sklearn.linear_model import LogisticRegression;
 
 
 #helper Functions
+
 def Euclidean_Norm(x, y):
     return np.linalg.norm(x - y);
 
