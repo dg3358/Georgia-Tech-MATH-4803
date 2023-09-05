@@ -29,16 +29,14 @@ betaVal = result.params["horsepower"]
 #print(result.summary());
 
 #plot
-plt.scatter(df_new["horsepower"], df_new["mpg"], label = 'datapoints');
-axes = plt.gca();
-x_vals = np.array(axes.get_xlim());
-y_vals = interceptVal + betaVal * x_vals;
-plt.plot(x_vals, y_vals, color = 'black', label = 'LSR line')
+fig, ax = plt.subplots(1,1);
+ax.scatter(df_new["horsepower"], df_new["mpg"], label = 'datapoints');
+ax.plot(df_new["horsepower"], interceptVal + betaVal*df_new["horsepower"], color = 'black', label = 'LSR line')
 plt.xlabel('Horsepower');
 plt.ylabel('mpg');
 plt.legend();
 plt.show();
-plt.clf();
+#plt.clf();
 
 #Print SSR
 #print("Sum of squared Residuals: ", result.ssr)
@@ -51,12 +49,31 @@ plt.clf();
 #QUESTION 2
 #--------
 
-#Print correlation matrix
-corrMat = df_new.corr();
-#print(corrMat);
+
+#Get rid of name
+df_no_name = df_new.drop(columns = "name");
+
+#Generate correlation matrix
+corrMat = df_no_name.corr();
+
+#Create color matrix
+fig,ax = plt.subplots(1,1, figsize = (12.8,9.6))
+cax = ax.matshow(df_no_name.corr(),interpolation = 'nearest');
+fig.colorbar(cax)
+list_cols = list(df_no_name.columns.values)
+
+ax.set_xticks([i for i in range(len(df_no_name.columns.values))], fontsize = 8, labels = list_cols);
+ax.set_yticks([i for i in range(len(df_no_name.columns.values))], fontsize = 8, labels = list_cols);
+
+#Show color matrix
+plt.show()
+#plt.clf()
+
+#print correlation matrix
+print(corrMat);
 
 #run multiple linear regressionVals
-result2 = sm.ols(formula = "mpg ~ cylinders + displacement + horsepower + weight + acceleration + year + origin", data = df_new).fit();
+result2 = sm.ols(formula = "mpg ~ cylinders + displacement + horsepower + weight + acceleration + year + origin", data = df_no_name).fit();
 #print(result2.summary());
 
 #RSS part # TODO:
