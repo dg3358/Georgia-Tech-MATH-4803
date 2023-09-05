@@ -58,7 +58,7 @@ corrMat = df_no_name.corr();
 
 #Create color matrix
 fig,ax = plt.subplots(1,1, figsize = (12.8,9.6))
-cax = ax.matshow(df_no_name.corr(),interpolation = 'nearest');
+cax = ax.matshow(df_no_name.corr(),interpolation = 'nearest', cmap = "PuOr");
 fig.colorbar(cax)
 list_cols = list(df_no_name.columns.values)
 
