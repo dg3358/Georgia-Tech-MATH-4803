@@ -10,4 +10,6 @@ The mapping of Homework assignment to algorithms breaks down like this:
   * HW 4 - Trees (for Regression and Classification), Random Forests, Maximal Margin Classifier (_hw4_coding.py_)
   * HW 5 - K-Means Clustering, Gradient Descent, Neural Network, Principal Component Analysis, Spectral Clustering (_hw5_coding.py_)
 
+You can also view the PDF files in each HW folder as well as the folder for the final to see all of my work put together into one neat document.
+
 In addition, my team completed an assigned project where we classified characters via the Chars74k dataset using Principal Component Analyis to decrease the number of components, and then implemented K-Nearest-Neighbors, Logistic Regression, and Convolutional Neural Networks.
